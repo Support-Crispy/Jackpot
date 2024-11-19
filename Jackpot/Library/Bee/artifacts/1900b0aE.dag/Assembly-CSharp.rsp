@@ -365,6 +365,7 @@
 -analyzer:"C:/Program Files/Unity 2023.2.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/BulletDie.cs"
 "Assets/MoveCamera.cs"
+"Assets/PauseGame.cs"
 "Assets/PlayerCam.cs"
 "Assets/PlayerMovementAdvanced.cs"
 "Assets/ProjectileGun.cs"
