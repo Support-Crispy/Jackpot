@@ -4,38 +4,35 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
+    public static bool GameIsPaused = false;
 
-    public static bool gameIsPaused;
+    public GameObject pauseMenuUI;
 
-    void Resume ()
-    {
-        Time.timeScale = 1;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && gameIsPaused = false)
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            gameIsPaused = !gameIsPaused;
-            Pause();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && gameIsPaused = true)
-        {
-            gameIsPaused = false;
-            Resume();
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 
-    void Pause ()
+    void Resume()
     {
-        if(gameIsPaused)
-        {
-            Time.timeScale = 0f;
-        }
-        else 
-        {
-            Time.timeScale = 1;
-        }
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
     }
 }

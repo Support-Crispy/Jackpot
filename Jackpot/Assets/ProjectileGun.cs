@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ProjectileGun : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class ProjectileGun : MonoBehaviour
     public Camera fpsCam;
     public Transform attackPoint;
 
+    //Bullet Count
+    public TextMeshProUGUI ammunitionDisplay;
+
     //Bug Fixing :p
     public bool allowInvoke = true;
 
@@ -37,6 +41,10 @@ public class ProjectileGun : MonoBehaviour
     private void Update()
     {
         MyInput();
+
+        //set ammo display
+        if (ammunitionDisplay != null)
+            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magazineSize / bulletsPerTap);
     }
 
     private void MyInput()
