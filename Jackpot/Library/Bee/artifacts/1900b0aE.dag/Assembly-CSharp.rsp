@@ -363,15 +363,13 @@
 -analyzer:"C:/Program Files/Unity 2023.2.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity 2023.2.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity 2023.2.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/BulletDie.cs"
-"Assets/GameManager.cs"
-"Assets/MoveCamera.cs"
-"Assets/PauseGame.cs"
-"Assets/PlayerBehavior.cs"
-"Assets/PlayerCam.cs"
-"Assets/PlayerHealth.cs"
-"Assets/PlayerMovementAdvanced.cs"
-"Assets/ProjectileGun.cs"
+"Assets/Scripts/BulletDie.cs"
+"Assets/Scripts/MoveCamera.cs"
+"Assets/Scripts/PauseGame.cs"
+"Assets/Scripts/PlayerCam.cs"
+"Assets/Scripts/PlayerHealth.cs"
+"Assets/Scripts/PlayerMovementAdvanced.cs"
+"Assets/Scripts/ProjectileGun.cs"
 -langversion:9.0
 
 /deterministic
