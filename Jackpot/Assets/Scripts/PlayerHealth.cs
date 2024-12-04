@@ -5,12 +5,30 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+
+    [Header("Health")]
     private float health;
     private float lerpTimer;
     public float maxHealth = 100f;
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
+    public GameObject body;
+
+    [Header("Damage Overlay")]
+    public Image overlay;
+    public float duration;
+    public float fadeSpeed;
+
+    public float durationTimer;
+
+    [Header("Heal Overlay")]
+    public Image overlay2;
+    public float duration2;
+    public float fadeSpeed2;
+
+    public float durationTimer2;
+
 
     void Start()
     {
@@ -21,13 +39,25 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (overlay.color.a > 0)
         {
-            TakeDamage(Random.Range(5,10));
+            durationTimer += Time.deltaTime;
+            if (durationTimer > duration)
+            {
+                float tempAlpha = overlay.color.a;
+                tempAlpha -= Time.deltaTime * fadeSpeed;
+                overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, tempAlpha); 
+            }
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (overlay2.color.a > 0)
         {
-            RestoreHealth(Random.Range(5,10));
+            durationTimer2 += Time.deltaTime;
+            if (durationTimer2 > duration2)
+            {
+                float tempAlpha2 = overlay2.color.a;
+                tempAlpha2 -= Time.deltaTime * fadeSpeed2;
+                overlay2.color = new Color(overlay2.color.r, overlay2.color.g, overlay2.color.b, tempAlpha2); 
+            }
         }
     }
 
@@ -61,14 +91,39 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         lerpTimer = 0f;
+        durationTimer = 0;
+        overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, 1); 
+        if (health <= 0)
+        {
+            Death();
+        }
     }
 
     public void RestoreHealth(float healAmount)
     {
         health += healAmount;
         lerpTimer = 0f;
+        durationTimer2 = 0;
+        overlay2.color = new Color(overlay2.color.r, overlay2.color.g, overlay2.color.b, 1); 
     }
 
+    public void Death()
+    {
+        Destroy(body);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {   
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(10);
+        }
+
+        if (collision.gameObject.tag == "Healing")
+        {
+            RestoreHealth(10);
+        }
+    }
 
 
 

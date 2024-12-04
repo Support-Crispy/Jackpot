@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - KillBullet
+  - Enemy
+  - Healing
   layers:
   - Default
   - TransparentFX
