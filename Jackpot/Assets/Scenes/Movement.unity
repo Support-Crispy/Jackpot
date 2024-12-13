@@ -2022,6 +2022,7 @@ GameObject:
   - component: {fileID: 779937142}
   - component: {fileID: 779937144}
   - component: {fileID: 779937143}
+  - component: {fileID: 779937145}
   m_Layer: 0
   m_Name: Mr.Guy
   m_TagString: Enemy
@@ -2064,13 +2065,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779937136}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.19, y: 2.3697, z: 23.77}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.817616, y: 5.8611646, z: -2.0731812}
   m_LocalScale: {x: 1.4015175, y: 1.4015175, z: 1.4015175}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 259464141}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1483909145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &779937139
 NavMeshAgent:
@@ -2138,7 +2139,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   health: 100
+  enemydrops: {fileID: 0}
   ps: {fileID: 779937144}
+  coin: {fileID: 6193210301584927655, guid: 9ac31e6bec2ef994a8d3ad2157468fa3, type: 3}
+  healingitem: {fileID: 8177260192679755620, guid: af6407088daa7774aa5640312dcab9ea, type: 3}
+  magazineup: {fileID: 8611178779135476666, guid: b02740daff6e88a42865d16ec6820324, type: 3}
+  bulletup: {fileID: 1410580026471677787, guid: d4b225b4843c4ad46a4f5fc65d5ceb34, type: 3}
+  rapidfire: {fileID: 7813681326959619400, guid: 66d2844c31c8f984da1254416ff815f5, type: 3}
+  calculatedDropChance: 0
   walkPoint: {x: 10, y: 0, z: 10}
   walkPointRange: 10
   timeBetweenAttacks: 1.5
@@ -6965,6 +6973,25 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &779937145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779937136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398ad599fae10574b9d548ce87edec25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 6193210301584927655, guid: 9ac31e6bec2ef994a8d3ad2157468fa3, type: 3}
+  healingitem: {fileID: 8177260192679755620, guid: af6407088daa7774aa5640312dcab9ea, type: 3}
+  magazineup: {fileID: 8611178779135476666, guid: b02740daff6e88a42865d16ec6820324, type: 3}
+  bulletup: {fileID: 1410580026471677787, guid: d4b225b4843c4ad46a4f5fc65d5ceb34, type: 3}
+  rapidfire: {fileID: 7813681326959619400, guid: 66d2844c31c8f984da1254416ff815f5, type: 3}
+  me: {fileID: 1483909145}
+  calculatedDropChance: 0
 --- !u!1001 &809590061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9371,6 +9398,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1049249207}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 50}
+--- !u!1 &1483909144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1483909145}
+  m_Layer: 0
+  m_Name: EnemyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1483909145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483909144}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.007616, y: -3.4914646, z: 25.843182}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 779937138}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1504142941
 Mesh:
   m_ObjectHideFlags: 0
@@ -12306,9 +12365,9 @@ SceneRoots:
   - {fileID: 230831158}
   - {fileID: 1948637039}
   - {fileID: 765679434}
-  - {fileID: 779937138}
   - {fileID: 4758835017687774196}
   - {fileID: 7988039931176932377}
   - {fileID: 7768687780478108485}
   - {fileID: 3253503595107936637}
   - {fileID: 1683797129721187578}
+  - {fileID: 1483909145}

@@ -12,7 +12,17 @@ public class EnemyAi : MonoBehaviour
 
     public float health;
 
+    public EnemyDrops enemydrops;
+
     public ParticleSystem ps;
+
+    public GameObject coin;
+    public GameObject healingitem;
+    public GameObject magazineup;
+    public GameObject bulletup;
+    public GameObject rapidfire;
+
+    public int calculatedDropChance;
 
     //Patroling
     public Vector3 walkPoint;
@@ -111,8 +121,9 @@ public class EnemyAi : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= 0) ps.Play();
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0) ps.Play();
+        if (health <= 0) enemydrops.CalculateLoot();
     }
     private void DestroyEnemy()
     {
@@ -125,5 +136,39 @@ public class EnemyAi : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+        public void CalculateLoot()
+    {
+        int calculatedDropChance = Random.Range (0, 50);
+        DropLoot();
+    }
+
+    public void DropLoot()
+    {
+        if (calculatedDropChance <= 25)
+        {
+            Instantiate(coin, new Vector3(0, 0, 0), Quaternion.identity);
+        }
+        if (calculatedDropChance <= 35 && calculatedDropChance >= 26)
+        {
+            Instantiate(healingitem, new Vector3(0, 0, 0), Quaternion.identity);
+        }
+        if (calculatedDropChance <= 50 && calculatedDropChance >= 36)
+        {
+            int calculatedUpgradeDropChance = Random.Range (0,3);
+            if (calculatedUpgradeDropChance <= 1)
+            {
+                Instantiate(magazineup, new Vector3(0, 6, 0), Quaternion.identity);
+            }
+            if (calculatedUpgradeDropChance == 2)
+            {
+                Instantiate(rapidfire, new Vector3(0, 6, 0), Quaternion.identity);
+            }
+            if (calculatedUpgradeDropChance == 3)
+            {
+                Instantiate(bulletup, new Vector3(0, 6, 0), Quaternion.identity);
+            }
+        }
     }
 }
