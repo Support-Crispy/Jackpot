@@ -367,6 +367,8 @@
 -analyzer:"C:/Program Files/Unity 2023.2.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity 2023.2.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity 2023.2.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/QuitGame.cs"
+"Assets/Respawn.cs"
 "Assets/Scripts/BulletDie.cs"
 "Assets/Scripts/Coins.cs"
 "Assets/Scripts/EnemyAi.cs"
@@ -379,6 +381,7 @@
 "Assets/Scripts/PlayerHealth.cs"
 "Assets/Scripts/PlayerMovementAdvanced.cs"
 "Assets/Scripts/ProjectileGun.cs"
+"Assets/ToMenu.cs"
 -langversion:9.0
 
 /deterministic

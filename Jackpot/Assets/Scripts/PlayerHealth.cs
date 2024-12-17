@@ -29,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
 
     public float durationTimer2;
 
+    public GameObject respawnMenuUI;
+
 
     void Start()
     {
@@ -109,6 +111,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Death()
     {
+        DeathMenu();
         Destroy(body);
     }
 
@@ -123,6 +126,12 @@ public class PlayerHealth : MonoBehaviour
         {
             RestoreHealth(10);
         }
+    }
+
+    public void DeathMenu()
+    {
+        respawnMenuUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 
 
